@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>퀴즈 생성기 | 수업 준비 도우미</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="sidebar__title"><a href="index.html">수업 준비 도우미</a></p>
+      <nav aria-label="기능 메뉴">
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="quiz.html" aria-current="page">퀴즈 생성기</a></li>
+          <li class="menu__item"><a class="menu__link" href="activity.html">학습활동 추천</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="content">
+        <header>
+          <h1 class="page-title">퀴즈 생성기</h1>
+          <p class="page-desc">수업 주제에 맞는 확인 문제를 만듭니다.</p>
+        </header>
+
+        <section class="card" aria-labelledby="form-title">
+          <h2 class="section-title" id="form-title">입력</h2>
+          <form class="form-grid" id="feature-form" novalidate data-feature="quiz" data-result-title="퀴즈 입력 내용">
+            <div class="field">
+              <label class="field__label" for="subject">과목</label>
+              <input class="field__input" id="subject" name="subject" type="text" placeholder="예: 과학" required>
+              <p class="field__hint">수업 과목을 적습니다.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="level">학년 또는 학습자 수준</label>
+              <input class="field__input" id="level" name="level" type="text" placeholder="예: 중학교 2학년" required>
+              <p class="field__hint">수업 대상의 학년이나 수준을 적습니다.</p>
+            </div>
+            <div class="field field--wide">
+              <label class="field__label" for="topic">주제 또는 자료</label>
+              <textarea class="field__input" id="topic" name="topic" rows="4" placeholder="예: 물의 상태 변화" required></textarea>
+              <p class="field__hint">주제를 적거나 수업 자료를 붙여 넣습니다.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="count">문항 수</label>
+              <input class="field__input" id="count" name="count" type="number" inputmode="numeric" min="1" max="10" value="5" required data-label="문항 수" data-unit="개" data-integer="true">
+              <p class="field__hint">1~10 사이의 정수입니다. 기본값은 5입니다.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="kind">문항 유형</label>
+              <select class="field__input" id="kind" name="kind" required>
+                <option selected>4지선다</option>
+                <option>OX</option>
+                <option>단답형</option>
+              </select>
+              <p class="field__hint">4지선다, OX, 단답형 중에서 고릅니다. 기본값은 4지선다입니다.</p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="difficulty">난이도</label>
+              <select class="field__input" id="difficulty" name="difficulty" required>
+                <option>쉬움</option>
+                <option selected>보통</option>
+                <option>어려움</option>
+              </select>
+              <p class="field__hint">쉬움, 보통, 어려움 중에서 고릅니다. 기본값은 보통입니다.</p>
+            </div>
+            <div class="form-actions">
+              <button class="button" type="submit">퀴즈 만들기</button>
+            </div>
+          </form>
+        </section>
+
+        <section aria-labelledby="results-title">
+          <h2 class="section-title" id="results-title">결과</h2>
+          <div class="results" id="results" aria-live="polite">
+            <div class="card card--empty">
+              <p>아직 결과가 없습니다. 입력을 채우고 퀴즈 만들기를 눌러 주세요.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/form-check.js"></script>
+  <script src="js/validate.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "edu-ai-apps-adv",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "openai": "^7.62.0"
+  }
+}
